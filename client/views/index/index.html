@@ -1,0 +1,68 @@
+<head>
+  <!--
+Created by Fullhdpixel
+fullhdpixel.com | @fullhdpixel
+-->
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watch Together | </title>
+  <link href="./img/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+
+<body></body>
+<!-- -->
+<template name="layout">
+  {{>yield}}
+</template>
+<!-- -->
+<template name="navbarlogout">
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div id="narrow" class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" style="color: #fff; background: transparent;" href="{{pathFor 'signup'}}">Watch Together</a>
+      </div>
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="navbar-right">
+          <ul class="nav navbar-nav onhover">
+            <li>
+              <div class="navbar-form">
+                <button class="login-button btn btn-block loginTwitter btn-primary">Login Using Twitter</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</template>
+<!-- -->
+<template name="footer">
+  <footer class="navbar-inverse navbar-fixed-bottom text-center" role="navigation">
+    <p>
+      Made by <a href="http://fullhdpixel.com" target="_blank">Fullhdpixel</a>
+    </p>
+  </footer>
+</template>
+<!-- -->
+<template name="signup">
+  {{>navbarlogout}}
+  <div class="demo-1">
+    <div id="large-header" class="large-header">
+      <div class="bs-header">
+        <div class="container">
+          <h1 class="wow fadeInDown">Watch videos together</h1>
+          <p class="wow fadeInDown lead">You can login with your Twitter account.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{>footer}}
+</template>
+<template name="notfound"></template>

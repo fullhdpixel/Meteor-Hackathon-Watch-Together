@@ -1,0 +1,204 @@
+<template name="navbaradmin">
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div id="narrow">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{{pathFor 'chart'}}">Applied Sciences Group</a>
+      </div>
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="navbar-right">
+          <ul class="nav navbar-nav onhover">
+            <li>
+              <div class="navbar-form">
+                <a href="{{pathFor 'chart'}}" class="btn btn-google">Go Back</a>
+              </div>
+            </li>
+            <li>
+              <li id="login-dropdown-list" class="dropdown">
+                <a class="dropdown-toggle">
+                  {{#with user}}
+                    {{this.services.username.screenName}}
+                  {{/with}}
+                  <b class="caret"></b>
+                </a>
+                <div class="dropdown-menu">
+                  <button class="btn btn-block btn-primary" id="login-buttons-logout">Sign out</button>
+                </div>
+              </li>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</template>
+<!-- -->
+<template name="admin">
+  {{>navbaradmin}}
+  <div align="center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h1>Bans</h1>
+            </div>
+            <div class="panel-body">
+              <div style="max-height:250px; overflow-y: auto;">
+                <table class="table table-bordered" align="center">
+                  <thead>
+                    <tr>
+                      <td>Username</td>
+                      <td>Unban User</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each bans}}
+                      <tr>
+                        <td><a href="https://twitter.com/{{this.user}}" target="_blank">@{{this.user}}</a>
+                        </td>
+                        <td>
+                          <button class="unban btn btn-danger btn-xs">x</button>
+                        </td>
+                      </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              </div>
+              <hr>
+              <form id="banForm" class="form-horizontal" role="form">
+                <div class="col-xs-6">
+                  <select name="user" class="form-control" required="required">
+                    {{#each users}}
+                      <option value="{{this.services.twitter.screenName}}">{{this.services.twitter.screenName}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="form-group col-xs-6">
+                  <button type="submit" class="btn btn-danger">Ban User</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h1>Invites</h1>
+            </div>
+            <div class="panel-body">
+              <div style="max-height:250px; overflow-y: auto;">
+                <table class="table table-bordered" align="center" style="max-height: 250px; overflow-y: auto;">
+                  <thead>
+                    <tr>
+                      <td>Username</td>
+                      <td>Uninvite User</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each invites}}
+                      <tr>
+                        <td><a href="https://twitter.com/{{this.user}}" target="_blank">@{{this.user}}</a>
+                        </td>
+                        <td>
+                          <button class="uninvite btn btn-danger btn-xs">x</button>
+                        </td>
+                      </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              </div>
+              <hr>
+              <form id="inviteForm" class="form-horizontal" role="form">
+                <div class="col-xs-6">
+                  <input type="text" name="userinvite" class="form-control" placeholder="Username" required="required">
+                </div>
+                <div class="form-group col-xs-6">
+                  <button type="submit" class="btn btn-warning">Invite User</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h1>Iframe content</h1>
+            </div>
+            <div class="panel-body">
+              <form id="frame" role="form">
+                <div class="form-group">
+                  <textarea name="source" type="text" class="form-control" value="{{iframe.src}}"></textarea>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h1>Overlay content</h1>
+            </div>
+            <div class="panel-body">
+              <form id="contentform" role="form">
+                <div class="form-group">
+                  <textarea name="contentone" type="text" class="form-control" value="{{content.[0].html}}"></textarea>
+                  <br>
+                  <textarea name="contenttwo" type="text" class="form-control" value="{{content.[1].html}}"></textarea>
+                  <br>
+                  <textarea name="contentthree" type="text" class="form-control" value="{{content.[2].html}}"></textarea>
+                  <br>
+                  <textarea name="contentfour" type="text" class="form-control" value="{{content.[3].html}}"></textarea>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h1>Users</h1>
+        </div>
+        <div class="panel-body">
+          <div>
+            <table class="table table-bordered" align="center">
+              <thead>
+                <tr>
+                  <td>Username (from Twitter)</td>
+                  <td>Language</td>
+                  <td>Avatar</td>
+                  <td>Is Admin?</td>
+                  <td>Ban User</td>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each users}}
+                  <tr>
+                    <td><a href="https://twitter.com/{{this.services.twitter.screenName}}" target="_blank">@{{this.services.twitter.screenName}}</a>
+                    </td>
+                    <td>{{this.services.twitter.lang}}</td>
+                    <td><img src="{{this.services.twitter.profile_image_url}}" alt="" />
+                    </td>
+                    <td>{{isAdmin this.services.twitter.screenName}}</td>
+                    <td>
+                      <button class="ban btn btn-danger btn-md">x</button>
+                    </td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,87 @@
+<template name="navbar">
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{{pathFor 'chart'}}">Watch together</a>
+      </div>
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav onhover">
+          <!--
+          <li>
+            <a href="http://syncfund.com/asg.pdf" target="_blank">Rules</a>
+          </li>
+          -->
+        </ul>
+        <div class="navbar-right">
+          <ul class="nav navbar-nav onhover">
+            <li>
+              <div class="navbar-form">
+                <button id="toggleOverlayOne" data-initial="Show 1" class="{{undefined '1'}} toggleOverlay btn btn-sm btn-Twitter">Show 1</button>
+              </div>
+            </li>
+            <li>
+              <div class="navbar-form">
+                <button id="toggleOverlayTwo" data-initial="Show 2" class="{{undefined '2'}} toggleOverlay btn btn-sm btn-Twitter">Show 2</button>
+              </div>
+            </li>
+            <li>
+              <div class="navbar-form">
+                <button id="toggleOverlayThree" data-initial="Show 3" class="{{undefined '3'}} toggleOverlay btn btn-sm btn-google">Show 3</button>
+              </div>
+            </li>
+            <li>
+              <div class="navbar-form">
+                <button id="toggleOverlayFour" data-initial="Show 4" class="{{undefined '4'}} toggleOverlay btn btn-sm btn-google">Show 4</button>
+              </div>
+            </li>
+            <li>
+              <li id="login-dropdown-list" class="dropdown">
+                <a class="dropdown-toggle">
+                  {{username.services.twitter.screenName}}
+                  <b class="caret"></b>
+                </a>
+                <div class="dropdown-menu">
+                  <button class="btn btn-block btn-primary" id="login-buttons-logout">Sign out</button>
+                </div>
+              </li>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</template>
+<!-- -->
+<template name="chart">
+  {{>navbar}}
+  <iframe src="{{source.src}}"></iframe>
+  <div id="chat">
+    {{> chatworks}}
+  </div>
+  <div id="overlayOne" class="overlay">
+    <div class="" style="height: 100%;" align="center">
+      {{{overlay.[0].html}}}
+    </div>
+  </div>
+  <div id="overlayTwo" class="overlay">
+    <div class="" style="height: 100%;" align="center">
+      {{{overlay.[1].html}}}
+    </div>
+  </div>
+  <div id="overlayThree" class="overlay">
+    <div style="height: 100%;" align="center">
+      {{{overlay.[2].html}}}
+    </div>
+  </div>
+  <div id="overlayFour" class="overlay">
+    <div style="height: 100%;" align="center">
+      {{{overlay.[3].html}}}
+    </div>
+  </div>
+</template>

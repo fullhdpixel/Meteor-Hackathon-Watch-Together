@@ -1,0 +1,166 @@
+body {
+    margin: 0px;
+    background: url('./img/background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+canvas {
+    position: absolute;
+    top: 0px;
+}
+
+iframe {
+    position: absolute;
+    border: none;
+    box-sizing: border-box;
+    width: 75%;
+    height: calc(100% - 57px);
+}
+
+textarea {
+    resize: vertical !important;
+}
+
+nav {
+    z-index: 9999;
+}
+
+h1 {
+    color: white;
+}
+
+table {
+    text-align: center;
+    table-layout: fixed
+}
+
+#stats {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 25px;
+    border-radius: 3px;
+    font-size: 1.3em;
+}
+
+.row {
+    padding-top: 25px;
+}
+
+.navbar-right {
+    padding-right: 15px !important;
+}
+
+#userimg {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 40px;
+    width: auto;
+}
+
+#chat {
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 25%;
+    min-width: 442px;
+    padding: 0px;
+    height: calc(100% - 56px);
+    margin-top: 56px;
+    overflow-x: auto;
+}
+
+@media( max-width: 480px) {
+    #chat {
+        width: 100% !important;
+        min-width: 200px !important;
+    }
+    #chatworks-header > div {
+        padding: 11px 5px 12px 5px !important;
+    }
+}
+
+#login-dropdown-list {
+    margin-top: 15px;
+    margin-right: -25px;
+    padding-left: 15px;
+}
+
+#login-dropdown-list a {
+    text-transform: capitalize;
+}
+
+#login-buttons-logout {
+    width: 100%;
+}
+
+#login-buttons-open-change-password {
+    display: none;
+}
+
+.overlay {
+    display: none;
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    height: calc(100% - 57px);
+    margin-top: 57px;
+    width: 75%;
+    pointer-events: none;
+}
+
+#content {
+    padding-top: calc(50px + 5%);
+}
+
+#overlay #content {
+    color: black;
+}
+
+.tweet {
+    background: #fff;
+}
+
+#login-buttons-message-dialog {
+    position: absolute;
+    top: 80px;
+    cursor: pointer;
+}
+
+#messages-dialog-dismiss-button {
+    display: none;
+}
+
+#chatworks-send-box {
+    height: 0px;
+}
+
+#chatworks-container {
+    height: calc(100% - 83px);
+}
+
+.imagewrapper {
+    float: left;
+    text-align: left;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.resizable {
+    min-height: 250px !important;
+    min-width: 250px !important;
+}
+
+.ui-wrapper {
+    display: inline-table;
+    overflow: visible !important;
+}
+
+.ui-icon-gripsmall-diagonal-se {
+    background: white;
+    border-radius: 10px;
+    border: 3px solid red;
+}
